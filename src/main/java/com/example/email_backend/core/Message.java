@@ -1,10 +1,10 @@
 package com.example.email_backend.core;
 
-public class Error
+public class Message
 {
   private String message;
   
-  public Error(String message)
+  public Message(String message)
   {
     this.message = message;
   }

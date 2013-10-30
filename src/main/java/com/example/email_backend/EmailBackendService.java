@@ -5,7 +5,7 @@ import com.example.email_backend.core.Account;
 import com.example.email_backend.core.User;
 import com.example.email_backend.db.AccountDAO;
 import com.example.email_backend.db.UserDAO;
-import com.example.email_backend.resources.UserResource;
+import com.example.email_backend.resources.UserManagementResource;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
@@ -56,7 +56,7 @@ public class EmailBackendService extends Service<EmailBackendConfiguration>
   {
     final AccountDAO accountDAO = new AccountDAO(hibernate.getSessionFactory());
     final UserDAO userDAO = new UserDAO(hibernate.getSessionFactory());
-    environment.addResource(new UserResource(userDAO));
+    environment.addResource(new UserManagementResource(userDAO, accountDAO));
   }
 
 }
